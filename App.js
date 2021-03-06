@@ -49,35 +49,48 @@ const App: () => React$Node = () => {
     <>
       <Header />
       <View style={styles.container}>
+       <View id="blue">
         <View style={styles.group}>
          <View style={styles.invert}>
           <AppButton title="Team Blue" backgroundColor="#0A95FF" onPress={handlePress} />
          </View>
         </View>
         <View style={styles.group}>
-          <View style={styles.invert}>
-            <Text style={styles.text}>Team Blue Score</Text>
-            <Text style={styles.score}>{count}</Text>
-          </View>
-          <View style={styles.separator}>
-            <View style={styles.invert}>
-             <AppButton title="Reset" backgroundColor="#CFCFCF" onPress={handleReset} />
-            </View>
-            <View>
-             <Timer play={play} time={time} />
-            </View>
-            <View>
-             <AppButton title="Reset" backgroundColor="#CFCFCF" onPress={handleReset2} />
-            </View>
-          </View>
-          <View>
-            <Text style={styles.text}>Team Red Score</Text>
-            <Text style={styles.score}>{count2}</Text>
-          </View>
+         <View style={styles.invert}>
+           <Text style={styles.text}>Team Blue Score</Text>
+           <Text style={styles.score}>{count}</Text>
+         </View>
         </View>
         <View style={styles.group}>
-          <AppButton title="Team Red" backgroundColor="#E00016" onPress={handlePress2} />
+         <View style={styles.invert}>
+          <AppButton title="Reset" backgroundColor="#CFCFCF" onPress={handleReset} />
+         </View>
         </View>
+        <View>
+         <Timer play={play} time={time} style={styles.invert} />
+        </View>
+       </View>
+       <View id="red">
+        <View>
+         <Timer play={play} time={time} />
+        </View>
+        <View style={styles.group}>
+         <View>
+          <AppButton title="Reset" backgroundColor="#CFCFCF" onPress={handleReset2} />
+         </View>
+        </View>
+        <View style={styles.group}>
+         <View>
+          <Text style={styles.text}>Team Red Score</Text>
+          <Text style={styles.score}>{count2}</Text>
+         </View>
+        </View>
+        <View style={styles.group}>
+         <View>
+          <AppButton title="Team Red" backgroundColor="#E00016" onPress={handlePress2} />
+         </View>
+        </View>
+       </View>
       </View>
       <Footer />
     </>
@@ -92,7 +105,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   group: {
-    alignItems: "center"
+    alignItems: "center",
+    padding: 3.5,
   },
   text: {
     color: "black",
