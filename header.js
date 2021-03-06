@@ -8,14 +8,17 @@ const styles = StyleSheet.create({
         color: "black",
         textTransform: "uppercase",
         position: "absolute",
-        top: 10,
+        bottom: 10,
         left: 20
       },
+      invert: {
+        transform: [{rotate: "180deg"}]
+      }
 });
 
 const Header = () => {
     return (
-        <View>
+        <View style={styles.invert}>
             <TypeWriter typing={1} style={styles.text}>2Buttons</TypeWriter>
         </View>
     )

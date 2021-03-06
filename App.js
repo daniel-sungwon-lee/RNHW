@@ -26,10 +26,12 @@ const App: () => React$Node = () => {
       <Header />
       <View style={styles.container}>
         <View style={styles.group}>
+         <View style={styles.invert}>
           <AppButton title="Team Blue" backgroundColor="#0A95FF" onPress={() => setCount(count +1)} />
+         </View>
         </View>
         <View style={styles.group}>
-          <View>
+          <View style={styles.invert}>
             <Text style={styles.text}>Team Blue Score</Text>
             <Text style={styles.score}>{count}</Text>
           </View>
@@ -69,6 +71,9 @@ const styles = StyleSheet.create({
   },
   separator: {
     padding: 33
+  },
+  invert: {
+    transform: [{rotate: "180deg"}]
   }
 });
 
