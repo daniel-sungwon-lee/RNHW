@@ -1,2 +1,2 @@
 # First Native App
-My first Hello World using React Native
+My first React Native mobile app for Android

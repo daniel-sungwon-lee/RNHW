@@ -3,22 +3,19 @@ import { Text, View, StyleSheet } from 'react-native';
 import TypeWriter from 'react-native-typewriter';
 
 const styles = StyleSheet.create({
-    container: {
-        textAlign: "center"
-    },
     text: {
         fontSize: 33,
-        color: "red"
+        color: "black"
       },
 });
 
-const HelloWorld = () => {
+const Header = () => {
     return (
-        <View style={styles.container}>
-            <TypeWriter typing={1} style={styles.text}>Hello, World!</TypeWriter>
+        <View>
+            <TypeWriter typing={1} style={styles.text}>Let the Battle Begin!</TypeWriter>
         </View>
     )
 }
 
-export default HelloWorld
+export default Header
 
