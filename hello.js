@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import TypeWriter from 'react-native-typewriter';
 
 const styles = StyleSheet.create({
     container: {
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
 const HelloWorld = () => {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Hello, World!</Text>
+            <TypeWriter typing={1} style={styles.text}>Hello, World!</TypeWriter>
         </View>
     )
 }

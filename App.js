@@ -35,7 +35,7 @@ const App: () => React$Node = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    padding: 100
+    padding: 110
   },
 });
 
