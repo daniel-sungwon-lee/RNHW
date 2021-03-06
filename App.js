@@ -15,11 +15,13 @@ import {
 
 import Header from './header.js';
 import AppButton from './button.js';
+import Timer from './timer.js';
 import Footer from './footer.js';
 
 const App: () => React$Node = () => {
   const [count, setCount] = useState(0)
   const [count2, setCount2] = useState(0)
+  const [play, setPlay] = useState(false)
 
   return (
     <>
@@ -35,13 +37,21 @@ const App: () => React$Node = () => {
             <Text style={styles.text}>Team Blue Score</Text>
             <Text style={styles.score}>{count}</Text>
           </View>
-          <Text style={styles.separator}/>
+          <View style={styles.separator}>
+            <View style={styles.invert}>
+             <AppButton title="Reset" backgroundColor="#CFCFCF" onPress={() => setCount(0)} />
+            </View>
+            <Timer play={play} />
+            <View>
+             <AppButton title="Reset" backgroundColor="#CFCFCF" onPress={() => setCount2(0)} />
+            </View>
+          </View>
           <View>
             <Text style={styles.text}>Team Red Score</Text>
             <Text style={styles.score}>{count2}</Text>
           </View>
         </View>
-        <View style={styles.group}>
+        <View style={styles.group} onPress={() => setPlay(true)}>
           <AppButton title="Team Red" backgroundColor="#E00016" onPress={() => setCount2(count2 +1)} />
         </View>
       </View>
@@ -70,7 +80,7 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   separator: {
-    padding: 33
+    padding: 20
   },
   invert: {
     transform: [{rotate: "180deg"}]

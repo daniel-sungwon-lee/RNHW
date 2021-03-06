@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Button, TouchableOpacity, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -19,12 +19,14 @@ const styles = StyleSheet.create({
 
 const AppButton = ({ onPress, title, backgroundColor }) => {
     return (
+      <>
         <TouchableOpacity onPress={onPress} style={[
                 styles.button,
                 backgroundColor && {backgroundColor}
             ]}>
             <Text style={styles.buttonText}>{title}</Text>
         </TouchableOpacity>
+      </>
     )
 }
 
