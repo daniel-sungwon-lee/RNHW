@@ -8,12 +8,12 @@ const styles = StyleSheet.create({
         color: "black",
         textTransform: "uppercase",
         position: "absolute",
-        top: 10,
+        bottom: 10,
         left: 20
       },
 });
 
-const Header = () => {
+const Footer = () => {
     return (
         <View>
             <TypeWriter typing={1} style={styles.text}>2Buttons</TypeWriter>
@@ -21,5 +21,5 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Footer
 

@@ -15,6 +15,7 @@ import {
 
 import Header from './header.js';
 import AppButton from './button.js';
+import Footer from './footer.js';
 
 const App: () => React$Node = () => {
   const [count, setCount] = useState(0)
@@ -22,17 +23,27 @@ const App: () => React$Node = () => {
 
   return (
     <>
-      <Header style={styles.text} />
+      <Header />
       <View style={styles.container}>
-        <View>
+        <View style={styles.group}>
           <AppButton title="Team Blue" backgroundColor="#0A95FF" onPress={() => setCount(count +1)} />
-          <Text>Team Blue Score: {count}</Text>
         </View>
-        <View>
-          <AppButton title="Team Red" backgroundColor="red" onPress={() => setCount2(count2 +1)} />
-          <Text>Team Red Score: {count2}</Text>
+        <View style={styles.group}>
+          <View>
+            <Text style={styles.text}>Team Blue Score</Text>
+            <Text style={styles.score}>{count}</Text>
+          </View>
+          <Text style={styles.separator}/>
+          <View>
+            <Text style={styles.text}>Team Red Score</Text>
+            <Text style={styles.score}>{count2}</Text>
+          </View>
+        </View>
+        <View style={styles.group}>
+          <AppButton title="Team Red" backgroundColor="#E00016" onPress={() => setCount2(count2 +1)} />
         </View>
       </View>
+      <Footer />
     </>
   );
 };
@@ -43,6 +54,21 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     justifyContent: "space-between"
+  },
+  group: {
+    alignItems: "center"
+  },
+  text: {
+    color: "black",
+    fontSize: 23
+  },
+  score: {
+    color: "#1dbf73",
+    fontSize: 26,
+    alignSelf: "center"
+  },
+  separator: {
+    padding: 33
   }
 });
 
