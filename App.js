@@ -21,7 +21,29 @@ import Footer from './footer.js';
 const App: () => React$Node = () => {
   const [count, setCount] = useState(0)
   const [count2, setCount2] = useState(0)
+  const [time, setTime] = useState(30)
   const [play, setPlay] = useState(false)
+
+  const handlePress = () => {
+      setCount(count +1)
+      setPlay(true)
+  }
+
+  const handlePress2 = () => {
+    setCount2(count2 +1)
+    setPlay(true)
+  }
+
+  const handleReset = () => {
+    setCount(0)
+    setPlay(false)
+  }
+
+  const handleReset2 = () => {
+      setCount2(0)
+      setTime(30)
+      setPlay(false)
+    }
 
   return (
     <>
@@ -29,7 +51,7 @@ const App: () => React$Node = () => {
       <View style={styles.container}>
         <View style={styles.group}>
          <View style={styles.invert}>
-          <AppButton title="Team Blue" backgroundColor="#0A95FF" onPress={() => setCount(count +1)} />
+          <AppButton title="Team Blue" backgroundColor="#0A95FF" onPress={handlePress} />
          </View>
         </View>
         <View style={styles.group}>
@@ -39,11 +61,13 @@ const App: () => React$Node = () => {
           </View>
           <View style={styles.separator}>
             <View style={styles.invert}>
-             <AppButton title="Reset" backgroundColor="#CFCFCF" onPress={() => setCount(0)} />
+             <AppButton title="Reset" backgroundColor="#CFCFCF" onPress={handleReset} />
             </View>
-            <Timer play={play} />
             <View>
-             <AppButton title="Reset" backgroundColor="#CFCFCF" onPress={() => setCount2(0)} />
+             <Timer play={play} time={time} />
+            </View>
+            <View>
+             <AppButton title="Reset" backgroundColor="#CFCFCF" onPress={handleReset2} />
             </View>
           </View>
           <View>
@@ -51,8 +75,8 @@ const App: () => React$Node = () => {
             <Text style={styles.score}>{count2}</Text>
           </View>
         </View>
-        <View style={styles.group} onPress={() => setPlay(true)}>
-          <AppButton title="Team Red" backgroundColor="#E00016" onPress={() => setCount2(count2 +1)} />
+        <View style={styles.group}>
+          <AppButton title="Team Red" backgroundColor="#E00016" onPress={handlePress2} />
         </View>
       </View>
       <Footer />
