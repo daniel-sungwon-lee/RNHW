@@ -22,17 +22,20 @@ const App: () => React$Node = () => {
   const [count, setCount] = useState(0)
   const [count2, setCount2] = useState(0)
   const [play, setPlay] = useState(false)
+  const [play2, setPlay2] = useState(false)
   const [id, setId] = useState("1")
   const [id2, setId2] = useState("2")
 
   const handlePress = () => {
       setCount(count +1)
       setPlay(true)
+      setPlay2(true)
   }
 
   const handlePress2 = () => {
     setCount2(count2 +1)
     setPlay(true)
+    setPlay2(true)
   }
 
   const handleReset = () => {
@@ -44,7 +47,7 @@ const App: () => React$Node = () => {
   const handleReset2 = () => {
       setCount2(0)
       setId2((parseInt(id2) +1).toString())
-      setPlay(false)
+      setPlay2(false)
     }
 
   return (
@@ -76,7 +79,7 @@ const App: () => React$Node = () => {
        </View>
        <View id="red">
         <View>
-         <Timer play={play} id={id2} />
+         <Timer play={play2} id={id2} />
         </View>
         <View style={styles.group}>
          <View>
