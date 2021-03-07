@@ -37,13 +37,13 @@ const App: () => React$Node = () => {
 
   const handleReset = () => {
     setCount(0)
-    setId(Math.random().toString())
+    setId((parseInt(id) +1).toString())
     setPlay(false)
   }
 
   const handleReset2 = () => {
       setCount2(0)
-      setId2(Math.random().toString())
+      setId2((parseInt(id2) +1).toString())
       setPlay(false)
     }
 
