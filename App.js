@@ -21,8 +21,9 @@ import Footer from './footer.js';
 const App: () => React$Node = () => {
   const [count, setCount] = useState(0)
   const [count2, setCount2] = useState(0)
-  const [time, setTime] = useState(30)
   const [play, setPlay] = useState(false)
+  const [id, setId] = useState("1")
+  const [id2, setId2] = useState("2")
 
   const handlePress = () => {
       setCount(count +1)
@@ -36,12 +37,13 @@ const App: () => React$Node = () => {
 
   const handleReset = () => {
     setCount(0)
+    setId(Math.random().toString())
     setPlay(false)
   }
 
   const handleReset2 = () => {
       setCount2(0)
-      setTime(30)
+      setId2(Math.random().toString())
       setPlay(false)
     }
 
@@ -52,7 +54,8 @@ const App: () => React$Node = () => {
        <View id="blue">
         <View style={styles.group}>
          <View style={styles.invert}>
-          <AppButton title="Team Blue" backgroundColor="#0A95FF" onPress={handlePress} />
+          <AppButton title="Team Blue" backgroundColor="#0A95FF" padding={20} width={200}
+           onPress={handlePress} />
          </View>
         </View>
         <View style={styles.group}>
@@ -63,20 +66,22 @@ const App: () => React$Node = () => {
         </View>
         <View style={styles.group}>
          <View style={styles.invert}>
-          <AppButton title="Reset" backgroundColor="#CFCFCF" onPress={handleReset} />
+          <AppButton title="Reset" backgroundColor="#CFCFCF" padding={5} width={100}
+           onPress={handleReset} />
          </View>
         </View>
         <View>
-         <Timer play={play} time={time} style={styles.invert} />
+         <Timer play={play} style={styles.invert} id={id} />
         </View>
        </View>
        <View id="red">
         <View>
-         <Timer play={play} time={time} />
+         <Timer play={play} id={id2} />
         </View>
         <View style={styles.group}>
          <View>
-          <AppButton title="Reset" backgroundColor="#CFCFCF" onPress={handleReset2} />
+          <AppButton title="Reset" backgroundColor="#CFCFCF" padding={5} width={100}
+           onPress={handleReset2} />
          </View>
         </View>
         <View style={styles.group}>
@@ -87,7 +92,8 @@ const App: () => React$Node = () => {
         </View>
         <View style={styles.group}>
          <View>
-          <AppButton title="Team Red" backgroundColor="#E00016" onPress={handlePress2} />
+          <AppButton title="Team Red" backgroundColor="#E00016" padding={20} width={200}
+           onPress={handlePress2} />
          </View>
         </View>
        </View>
@@ -102,7 +108,7 @@ const styles = StyleSheet.create({
     padding: 115,
     flex: 1,
     flexDirection: "column",
-    justifyContent: "space-between"
+    justifyContent: "center"
   },
   group: {
     alignItems: "center",
